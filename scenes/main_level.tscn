@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://58j2svc2ovux"]
+
+[ext_resource type="Texture2D" uid="uid://ov632qvreush" path="res://icon.svg" id="1_v3uhd"]
+[ext_resource type="FontFile" uid="uid://bpyb17gdi8npp" path="res://fonts/PixelOperator8.ttf" id="2_ufxs0"]
+[ext_resource type="PackedScene" uid="uid://b2gc4s671d0y2" path="res://scenes/player.tscn" id="3_6we3w"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_6we3w"]
+font = ExtResource("2_ufxs0")
+
+[node name="Main Level" type="Node2D"]
+
+[node name="Floor" type="Sprite2D" parent="."]
+position = Vector2(533, 496)
+scale = Vector2(3.125, 0.234375)
+texture = ExtResource("1_v3uhd")
+
+[node name="Project Label" type="Label" parent="."]
+offset_left = 334.0
+offset_top = 379.0
+offset_right = 748.0
+offset_bottom = 399.0
+text = "Nate Oliver"
+label_settings = SubResource("LabelSettings_6we3w")
+horizontal_alignment = 1
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(537, 453)
+zoom = Vector2(4, 4)
+
+[node name="Player" parent="." instance=ExtResource("3_6we3w")]
+position = Vector2(533, 462)
