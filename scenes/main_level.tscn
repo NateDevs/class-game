@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://58j2svc2ovux"]
+[gd_scene load_steps=6 format=3 uid="uid://58j2svc2ovux"]
 
 [ext_resource type="Texture2D" uid="uid://ov632qvreush" path="res://icon.svg" id="1_v3uhd"]
 [ext_resource type="FontFile" uid="uid://bpyb17gdi8npp" path="res://fonts/PixelOperator8.ttf" id="2_ufxs0"]
@@ -7,12 +7,10 @@
 [sub_resource type="LabelSettings" id="LabelSettings_6we3w"]
 font = ExtResource("2_ufxs0")
 
-[node name="Main Level" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6we3w"]
+size = Vector2(128, 128)
 
-[node name="Floor" type="Sprite2D" parent="."]
-position = Vector2(533, 496)
-scale = Vector2(3.125, 0.234375)
-texture = ExtResource("1_v3uhd")
+[node name="Main Level" type="Node2D"]
 
 [node name="Project Label" type="Label" parent="."]
 offset_left = 334.0
@@ -28,4 +26,15 @@ position = Vector2(537, 453)
 zoom = Vector2(4, 4)
 
 [node name="Player" parent="." instance=ExtResource("3_6we3w")]
-position = Vector2(533, 462)
+position = Vector2(537, 408)
+
+[node name="Floor" type="StaticBody2D" parent="."]
+position = Vector2(536, 508)
+scale = Vector2(2.1721103, 0.33448222)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Floor"]
+texture = ExtResource("1_v3uhd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+shape = SubResource("RectangleShape2D_6we3w")

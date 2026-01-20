@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://b2gc4s671d0y2"]
+[gd_scene load_steps=9 format=3 uid="uid://b2gc4s671d0y2"]
 
 [ext_resource type="Texture2D" uid="uid://dj2q3eb20q4iu" path="res://characters/DinoSprites - doux.png" id="1_3vyb7"]
+[ext_resource type="Script" uid="uid://k5nlhdj3or70" path="res://scripts/player.gd" id="1_g2els"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g2els"]
 atlas = ExtResource("1_3vyb7")
@@ -39,10 +40,11 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fjrip"]
-radius = 5.0
-height = 18.0
+radius = 4.0
+height = 16.0
 
 [node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_g2els")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_tuyoq")
@@ -51,4 +53,5 @@ autoplay = "idle"
 frame_progress = 0.71574956
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
 shape = SubResource("CapsuleShape2D_fjrip")
