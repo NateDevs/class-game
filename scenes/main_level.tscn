@@ -8,7 +8,7 @@
 font = ExtResource("2_ufxs0")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6we3w"]
-size = Vector2(128, 128)
+size = Vector2(122.92884, 153.69089)
 
 [node name="Main Level" type="Node2D"]
 
@@ -37,4 +37,5 @@ metadata/_edit_group_ = true
 texture = ExtResource("1_v3uhd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+position = Vector2(2.535553, -12.845459)
 shape = SubResource("RectangleShape2D_6we3w")
