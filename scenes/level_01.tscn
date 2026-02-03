@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://cbvq25gmbqveu"]
 
 [ext_resource type="Texture2D" uid="uid://cylaxsvpw7o0b" path="res://tilesets/tileset.png" id="1_bpt1m"]
+[ext_resource type="Script" uid="uid://c018xwxjufvt3" path="res://scripts/game_manager.gd" id="1_llcge"]
 [ext_resource type="PackedScene" uid="uid://b2gc4s671d0y2" path="res://scenes/player.tscn" id="2_4lj41"]
 [ext_resource type="Texture2D" uid="uid://bnbtmcxutrx8" path="res://tilesets/middle.png" id="2_t0ybu"]
 [ext_resource type="Texture2D" uid="uid://dqw5iikjuwy2h" path="res://tilesets/props.png" id="3_1b6n0"]
@@ -445,6 +446,10 @@ _data = {
 
 [node name="Level 01" type="Node2D" unique_id=98900707]
 
+[node name="GameManager" type="Node" parent="." unique_id=1962260311]
+unique_name_in_owner = true
+script = ExtResource("1_llcge")
+
 [node name="TileMaps" type="Node" parent="." unique_id=333488581]
 
 [node name="Background" type="TileMapLayer" parent="TileMaps" unique_id=813335707]
@@ -502,6 +507,9 @@ position = Vector2(295, 20)
 
 [node name="Coin8" parent="Coins" unique_id=1657420475 instance=ExtResource("4_nr3cb")]
 position = Vector2(498, 22)
+
+[node name="Coin9" parent="Coins" unique_id=2043676165 instance=ExtResource("4_nr3cb")]
+position = Vector2(633, 23)
 
 [node name="Killzone" parent="." unique_id=319385998 instance=ExtResource("5_j60wy")]
 position = Vector2(449, 377)

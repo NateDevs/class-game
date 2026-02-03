@@ -4,7 +4,7 @@ extends CharacterBody2D
 
 const SPEED : float = 200.0
 const JUMP_VELOCITY : float = -300.0
-
+var last_direction : float = 0
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -17,6 +17,7 @@ func _physics_process(delta: float) -> void:
 
 	# Get the input direction and handle the movement/deceleration.
 	var direction := Input.get_axis("move_left", "move_right")
+	last_direction = direction
 	if direction:
 		velocity.x = direction * SPEED
 	else:
@@ -29,3 +30,21 @@ func _physics_process(delta: float) -> void:
 		animated_sprite_2d.flip_h = true
 		
 	move_and_slide()
+	handle_animation()
+	
+func handle_animation() -> void:
+	if is_on_floor() and last_direction == 0:
+		animated_sprite_2d.play("idle")
+	elif is_on_floor() and last_direction != 0:
+		animated_sprite_2d.play("run")
+	else:
+		animated_sprite_2d.play("jump")
+	
+	
+	
+	
+	
+	
+	
+	
+	
