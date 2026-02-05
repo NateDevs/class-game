@@ -4,6 +4,26 @@
 [ext_resource type="Texture2D" uid="uid://dkp0mhr1wauqw" path="res://enemies/Green Slime Spritesheet.png" id="1_tuic5"]
 [ext_resource type="PackedScene" uid="uid://bo6e2kytedgei" path="res://scenes/killzone.tscn" id="2_0pvn7"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_0pvn7"]
+atlas = ExtResource("1_tuic5")
+region = Rect2(48, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_35rgu"]
+atlas = ExtResource("1_tuic5")
+region = Rect2(64, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t5vyh"]
+atlas = ExtResource("1_tuic5")
+region = Rect2(80, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_452or"]
+atlas = ExtResource("1_tuic5")
+region = Rect2(96, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ukqwe"]
+atlas = ExtResource("1_tuic5")
+region = Rect2(112, 32, 16, 16)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_4q1e0"]
 atlas = ExtResource("1_tuic5")
 region = Rect2(48, 16, 16, 16)
@@ -36,6 +56,26 @@ region = Rect2(144, 16, 16, 16)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_0pvn7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_35rgu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t5vyh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_452or")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ukqwe")
+}],
+"loop": true,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_4q1e0")
 }, {
 "duration": 1.0,
@@ -62,24 +102,45 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t5vyh"]
-size = Vector2(12, 6)
+size = Vector2(12, 4)
 
-[node name="GreenSlime" type="Area2D" unique_id=1265187217]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0pvn7"]
+size = Vector2(10, 5)
+
+[node name="GreenSlime" type="Node2D" unique_id=451961395]
 script = ExtResource("1_0pvn7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=516802814]
+position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_35rgu")
+animation = &"death"
 autoplay = "default"
-frame_progress = 0.019495822
 
 [node name="Killzone" parent="." unique_id=525836830 instance=ExtResource("2_0pvn7")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone" unique_id=1168939743]
-position = Vector2(0, 5)
+position = Vector2(0, -2)
 shape = SubResource("RectangleShape2D_t5vyh")
+disabled = true
 
 [node name="RayCastRight" type="RayCast2D" parent="." unique_id=1500883195]
+position = Vector2(0, -3)
 target_position = Vector2(10, 0)
 
 [node name="RayCastLeft" type="RayCast2D" parent="." unique_id=232222923]
+position = Vector2(0, -3)
 target_position = Vector2(-10, 0)
+
+[node name="Hurtzone" type="Area2D" parent="." unique_id=1441011407]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtzone" unique_id=98222472]
+position = Vector2(0, -6.5)
+shape = SubResource("RectangleShape2D_0pvn7")
+disabled = true
+
+[node name="DeathTimer" type="Timer" parent="." unique_id=1599148521]
+one_shot = true
+
+[connection signal="body_entered" from="Hurtzone" to="." method="_on_hurtzone_body_entered"]
+[connection signal="timeout" from="DeathTimer" to="." method="_on_death_timer_timeout"]

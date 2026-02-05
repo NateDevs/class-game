@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://b84s8juoaqsjt"]
+
+[ext_resource type="Script" uid="uid://c1pqru4b0i2je" path="res://scripts/coin_ui.gd" id="1_55f6b"]
+[ext_resource type="FontFile" uid="uid://byu58uup53aox" path="res://fonts/PixelOperator8-Bold.ttf" id="1_e7x4s"]
+
+[node name="Coin UI" type="CenterContainer" unique_id=413172489]
+offset_right = 86.0
+offset_bottom = 21.0
+script = ExtResource("1_55f6b")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=2129963202]
+layout_mode = 2
+
+[node name="Coin Label" type="Label" parent="HBoxContainer" unique_id=1139953820]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_e7x4s")
+theme_override_font_sizes/font_size = 8
+text = "Coins: "
+
+[node name="Coin Count" type="Label" parent="HBoxContainer" unique_id=701166475]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_e7x4s")
+theme_override_font_sizes/font_size = 8
+text = "#"

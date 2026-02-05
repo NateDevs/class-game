@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://b12glbd6qmjq0" path="res://scenes/coin.tscn" id="4_nr3cb"]
 [ext_resource type="PackedScene" uid="uid://bo6e2kytedgei" path="res://scenes/killzone.tscn" id="5_j60wy"]
 [ext_resource type="PackedScene" uid="uid://crbneu3agclb5" path="res://scenes/green_slime.tscn" id="8_1b6n0"]
+[ext_resource type="PackedScene" uid="uid://b84s8juoaqsjt" path="res://scenes/ui/coin_ui.tscn" id="10_lwi15"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mofoo"]
 texture = ExtResource("1_bpt1m")
@@ -472,6 +473,12 @@ limit_left = 32
 limit_bottom = 300
 position_smoothing_enabled = true
 
+[node name="Coin UI" parent="Player/Camera2D" unique_id=413172489 instance=ExtResource("10_lwi15")]
+offset_left = -191.0
+offset_top = -100.0
+offset_right = -103.0
+offset_bottom = -78.0
+
 [node name="Platform" parent="." unique_id=1245814033 instance=ExtResource("3_mofoo")]
 position = Vector2(259, -5)
 
@@ -519,4 +526,4 @@ metadata/_edit_group_ = true
 shape = SubResource("WorldBoundaryShape2D_qgxqk")
 
 [node name="GreenSlime" parent="." unique_id=1265187217 instance=ExtResource("8_1b6n0")]
-position = Vector2(768, 56)
+position = Vector2(733, 64)

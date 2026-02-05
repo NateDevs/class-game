@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://bwji03uugbgij"]
+
+[ext_resource type="Script" uid="uid://ctak6ectw632n" path="res://scripts/main_menu.gd" id="1_sl1te"]
+[ext_resource type="FontFile" uid="uid://byu58uup53aox" path="res://fonts/PixelOperator8-Bold.ttf" id="2_1g8jr"]
+[ext_resource type="FontFile" uid="uid://bpyb17gdi8npp" path="res://fonts/PixelOperator8.ttf" id="3_m1kxf"]
+
+[node name="MainMenu" type="CenterContainer" unique_id=1050090906]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sl1te")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1408614295]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=1059822132]
+layout_mode = 2
+
+[node name="Title Label" type="Label" parent="PanelContainer/VBoxContainer" unique_id=860458030]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_1g8jr")
+theme_override_font_sizes/font_size = 64
+text = "Main Menu"
+
+[node name="Play Button" type="Button" parent="PanelContainer/VBoxContainer" unique_id=1895135534]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_m1kxf")
+theme_override_font_sizes/font_size = 48
+text = "Play"
+
+[node name="Options Button" type="Button" parent="PanelContainer/VBoxContainer" unique_id=1884155776]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_m1kxf")
+theme_override_font_sizes/font_size = 48
+text = "Options"
+
+[node name="Quit Button" type="Button" parent="PanelContainer/VBoxContainer" unique_id=393765949]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_m1kxf")
+theme_override_font_sizes/font_size = 48
+text = "Quit"
+
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Play Button" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Options Button" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Quit Button" to="." method="_on_quit_button_pressed"]

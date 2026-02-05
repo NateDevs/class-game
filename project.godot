@@ -15,9 +15,13 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="Class Game"
-run/main_scene="uid://cbvq25gmbqveu"
+run/main_scene="uid://bwji03uugbgij"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Music="*uid://btepjetseugah"
 
 [debug]
 
